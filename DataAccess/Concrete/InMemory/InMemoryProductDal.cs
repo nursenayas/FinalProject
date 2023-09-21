@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,11 @@ namespace DataAccess.Concrete.InMemory
         {
             _products = new List<Product> {
 
-                new Product{ProductID=1,CategoryID=1,ProductName="Bardak",UnitPrice=15, UnitStok=15},
-                new Product{ProductID=2,CategoryID=1,ProductName="Kamera",UnitPrice=500, UnitStok=3},
-                new Product{ProductID=3,CategoryID=2,ProductName="Telefon",UnitPrice=1500, UnitStok=2},
-                new Product{ProductID=4,CategoryID=2,ProductName="Klavye",UnitPrice=150, UnitStok=65},
-                new Product{ProductID=5,CategoryID=2,ProductName="Fare",UnitPrice=85, UnitStok=1},
+                new Product{ProductID=1,CategoryID=1,ProductName="Bardak",UnitPrice=15, UnitsInStock=15},
+                new Product{ProductID=2,CategoryID=1,ProductName="Kamera",UnitPrice=500, UnitsInStock=3},
+                new Product{ProductID=3,CategoryID=2,ProductName="Telefon",UnitPrice=1500, UnitsInStock=2},
+                new Product{ProductID=4,CategoryID=2,ProductName="Klavye",UnitPrice=150, UnitsInStock=65},
+                new Product{ProductID=5,CategoryID=2,ProductName="Fare",UnitPrice=85, UnitsInStock=1},
 
             };
         }
@@ -66,7 +67,7 @@ namespace DataAccess.Concrete.InMemory
             productToUpdate.ProductName = product.ProductName;
             productToUpdate.ProductID = product.ProductID;
             productToUpdate.UnitPrice = product.UnitPrice;
-            productToUpdate.UnitStok = product.UnitStok;
+            productToUpdate.UnitsInStock = product.UnitsInStock;
 
             _products.Add(productToUpdate);
 
@@ -83,6 +84,11 @@ namespace DataAccess.Concrete.InMemory
         }
 
         public Product Get(Expression<Func<Product, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ProductDetailDto> GetProductDetails()
         {
             throw new NotImplementedException();
         }
